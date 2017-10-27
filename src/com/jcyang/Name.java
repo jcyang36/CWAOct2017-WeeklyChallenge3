@@ -10,8 +10,7 @@ public class Name {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String firstName) { this.firstName = firstName;
     }
 
     public String getMiddleInitial() {
@@ -19,7 +18,9 @@ public class Name {
     }
 
     public void setMiddleInitial(String middleInitial) {
+
         this.middleInitial = middleInitial;
+
     }
 
     public String getLastName() {

@@ -58,20 +58,35 @@ public class Resume {
     public void EnterName(){
 name.setFirstName(scanner.nextLine());
         System.out.println("Enter middle initial: ");
-        name.setMiddleInitial(scanner.nextLine());
+        //validating initial
+        String middleInitial=scanner.nextLine();
+         while (middleInitial.length()!=1) {
+             System.out.println("Middle Initial must be have length 1.  Enter middle initial: ");
+            middleInitial=scanner.nextLine();
+         }
+        name.setMiddleInitial(middleInitial);
         System.out.println("Enter last name: ");
         name.setLastName(scanner.nextLine());
         System.out.println("Enter email: ");
-        name.setEmail(scanner.nextLine());}
+        //validating email
+         String email = scanner.nextLine();
+         while(!email.contains("@")){
+             System.out.println("Email must be of the form name@website.  Enter email: ");
+             email=scanner.nextLine();
+         }
+        name.setEmail(email);}
 
 
 
     public void enterEducationalAchievement(){
         ArrayList<EducationalAchievement> educations = new ArrayList<>();
         String repeatSwitch="";
+        int count =0;
         while (!repeatSwitch.equalsIgnoreCase("no")) {
 
-
+            if (count>=10){
+                break;
+            }
             EducationalAchievement education = new EducationalAchievement();
             educations.add(education);
             System.out.println("Enter degree: ");
@@ -85,14 +100,18 @@ name.setFirstName(scanner.nextLine());
             System.out.println("Would you like to enter a new educational achievement? Enter any key to continue or 'no' to exit");
             repeatSwitch = scanner.nextLine();
             this.setEducationAchievements(educations);
+            count++;
         }
     }
 
 
     public void enterExperience(){
         String repeatSwitch="";
-
+            int count =0;
         while (!repeatSwitch.equalsIgnoreCase("no")){
+            if (count>=10){
+                break;
+            }
             Experience experience = new Experience();
             experiences.add(experience);
             System.out.println("Enter title");
@@ -115,13 +134,19 @@ name.setFirstName(scanner.nextLine());
 
             System.out.println("Would you like to enter a new experience? Enter any key to continue or 'no' to exit");
             repeatSwitch = scanner.nextLine();
+            count++;
         }
+
 
     }
 
     public void enterSkill(){
         String repeatSwitch = "";
+        int count = 0;
         while(!repeatSwitch.equalsIgnoreCase("no")){
+            if (count>=20){
+                break;
+            }
             Skill skill = new Skill();
             skills.add(skill);
             System.out.println("Enter skill: ");
@@ -130,6 +155,7 @@ name.setFirstName(scanner.nextLine());
             skill.setProficiency(scanner.nextLine());
             System.out.println("Would you like to enter a new skill? Enter any key to continue or 'no' to exit");
             repeatSwitch=scanner.nextLine();
+            count++;
         }
 
 
